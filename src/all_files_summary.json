@@ -1,0 +1,18 @@
+{
+  "backend/main.mo": "Empty Motoko actor module with no implemented logic.",
+  "feature_evidence.json": "Feature evidence report mapping fireworks‑related requirements to the FireworksOverlay component.",
+  "frontend-file-summaries.txt": "Prewritten summaries describing the purpose of each main frontend component and config file.",
+  "frontend/index.css": "Global Tailwind base styles and OKLCH color tokens defining the light/dark Valentine-themed palette.",
+  "frontend/index.html": "Minimal HTML shell loading the React app through main.tsx.",
+  "frontend/src/App.tsx": "Main app component controlling Valentine interaction flow, YES celebration state, and fireworks timing.",
+  "frontend/src/components/FireworksOverlay.tsx": "Full-screen canvas rendering bright fireworks with configurable intensity, mobile scaling, and complete cleanup.",
+  "frontend/src/components/FloatingHeartsBackground.tsx": "Canvas animation of drifting, rising hearts forming a decorative background.",
+  "frontend/src/components/MovingNoButton.tsx": "Interactive NO button that jumps to random safe positions and cycles humorous messages on interaction.",
+  "frontend/src/hooks/useActor.ts": "React hook creating and managing an authenticated or anonymous backend actor with query invalidation.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides a React context and provider for Internet Identity authentication, managing identity loading, login, logout, and status tracking.",
+  "frontend/src/index.css": "Defines Tailwind base styles and extensive custom Valentine-themed color variables with utility classes and animations.",
+  "frontend/src/lib/utils.ts": "Exports a utility function combining clsx and tailwind-merge for merging class names.",
+  "frontend/src/main.tsx": "Bootstraps the React app, wrapping it with React Query and InternetIdentityProvider, and loads global styles.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending theme colors with CSS variables, adding plugins, animations, and Valentine color mappings.",
+  "project_state.json": "Project metadata describing existing features, versions, and overall scaffold state for an ICP app."
+}

@@ -1,0 +1,10 @@
+{
+  "frontend/src/App.tsx": "Main Valentine's proposal page component that manages the YES/NO interaction flow, displays the title with animated hearts, handles button clicks, and shows the celebration sequence with enhanced high-intensity fireworks lasting 10 seconds and romantic image when YES is clicked.",
+  "frontend/src/components/FloatingHeartsBackground.tsx": "Canvas-based background component that renders and animates floating red hearts continuously rising across the viewport with drift and opacity effects.",
+  "frontend/src/components/MovingNoButton.tsx": "Interactive NO button component that repositions itself to random safe viewport coordinates on any pointer interaction attempt and cycles through the provided funny romantic messages in order.",
+  "frontend/src/components/FireworksOverlay.tsx": "Full-screen canvas overlay component that renders bright, clearly visible fireworks with proper opacity (particles start at full brightness and fade smoothly), additive blending for glow effects, larger particle sizes, minimal trail darkening, and complete cleanup of all timers and animation frames.",
+  "frontend/src/components/ui/button.tsx": "Shadcn UI button component with variants and size options, supporting asChild prop for composition.",
+  "frontend/src/lib/utils.ts": "Utility module providing the cn() function for merging Tailwind CSS classes with clsx and tailwind-merge.",
+  "frontend/src/index.css": "Global stylesheet defining the Valentine color palette in OKLCH format (soft pinks/reds/creams), custom animations for hearts and UI elements, and Valentine-specific utility classes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with Valentine color tokens, custom animations, and theme settings for the romantic proposal design system."
+}

@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 1.5rem;
+        
+        /* Valentine color palette - soft pinks and reds */
+        --valentine-bg-start: 0.98 0.05 10;
+        --valentine-bg-end: 0.92 0.08 350;
+        --valentine-primary: 0.45 0.25 350;
+        --valentine-text: 0.35 0.15 350;
+        --valentine-heart: 0.55 0.28 355;
+        --valentine-yes: 0.55 0.25 355;
+        --valentine-yes-hover: 0.50 0.28 355;
+        --valentine-no: 0.98 0.02 350;
+        --valentine-no-hover: 0.95 0.05 350;
+        --valentine-no-text: 0.45 0.25 350;
+        --valentine-no-border: 0.85 0.12 350;
+        
+        --background: 0.98 0.05 10;
+        --foreground: 0.25 0.15 350;
+        --card: 1 0 0;
+        --card-foreground: 0.25 0.15 350;
+        --popover: 1 0 0;
+        --popover-foreground: 0.25 0.15 350;
+        --primary: 0.45 0.25 350;
+        --primary-foreground: 0.985 0 0;
+        --secondary: 0.97 0.05 350;
+        --secondary-foreground: 0.35 0.15 350;
+        --muted: 0.97 0.05 350;
+        --muted-foreground: 0.556 0.08 350;
+        --accent: 0.97 0.05 350;
+        --accent-foreground: 0.35 0.15 350;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        --border: 0.90 0.08 350;
+        --input: 0.90 0.08 350;
+        --ring: 0.708 0.15 350;
+        --chart-1: 0.646 0.222 355;
+        --chart-2: 0.6 0.118 350;
+        --chart-3: 0.398 0.07 345;
+        --chart-4: 0.828 0.189 355;
+        --chart-5: 0.769 0.188 350;
+    }
+
+    .dark {
+        --valentine-bg-start: 0.20 0.08 350;
+        --valentine-bg-end: 0.15 0.10 355;
+        --valentine-primary: 0.75 0.20 350;
+        --valentine-text: 0.85 0.10 350;
+        --valentine-heart: 0.65 0.25 355;
+        --valentine-yes: 0.60 0.25 355;
+        --valentine-yes-hover: 0.55 0.28 355;
+        --valentine-no: 0.25 0.08 350;
+        --valentine-no-hover: 0.30 0.10 350;
+        --valentine-no-text: 0.85 0.10 350;
+        --valentine-no-border: 0.45 0.15 350;
+        
+        --background: 0.20 0.08 350;
+        --foreground: 0.95 0.05 350;
+        --card: 0.25 0.08 350;
+        --card-foreground: 0.95 0.05 350;
+        --popover: 0.25 0.08 350;
+        --popover-foreground: 0.95 0.05 350;
+        --primary: 0.75 0.20 350;
+        --primary-foreground: 0.15 0.10 350;
+        --secondary: 0.30 0.10 350;
+        --secondary-foreground: 0.95 0.05 350;
+        --muted: 0.30 0.10 350;
+        --muted-foreground: 0.708 0.10 350;
+        --accent: 0.35 0.12 350;
+        --accent-foreground: 0.95 0.05 350;
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.95 0.05 350;
+        --border: 0.35 0.12 350;
+        --input: 0.35 0.12 350;
+        --ring: 0.556 0.15 350;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+        overflow-x: hidden;
+    }
+}
+
+@layer utilities {
+    .text-valentine-primary {
+        color: oklch(var(--valentine-primary));
+    }
+    
+    .text-valentine-text {
+        color: oklch(var(--valentine-text));
+    }
+    
+    .bg-valentine-yes {
+        background-color: oklch(var(--valentine-yes));
+    }
+    
+    .bg-valentine-yes-hover {
+        background-color: oklch(var(--valentine-yes-hover));
+    }
+    
+    .bg-valentine-no {
+        background-color: oklch(var(--valentine-no));
+    }
+    
+    .bg-valentine-no-hover {
+        background-color: oklch(var(--valentine-no-hover));
+    }
+    
+    .text-valentine-no-text {
+        color: oklch(var(--valentine-no-text));
+    }
+    
+    .border-valentine-no-border {
+        border-color: oklch(var(--valentine-no-border));
+    }
+    
+    .fill-valentine-heart {
+        fill: oklch(var(--valentine-heart));
+    }
+    
+    .text-valentine-heart {
+        color: oklch(var(--valentine-heart));
+    }
+}
+
+@keyframes bounce-slow {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-15px) scale(1.1);
+    }
+}
+
+@keyframes pulse-slow {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(-5deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-wiggle {
+    animation: wiggle 1.5s ease-in-out infinite;
+}
+
+.animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}

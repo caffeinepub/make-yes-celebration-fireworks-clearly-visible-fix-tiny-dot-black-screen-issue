@@ -1,0 +1,73 @@
+{
+  "kind": "build_request",
+  "title": "Make YES celebration fireworks clearly visible (fix tiny-dot/black-screen issue)",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Fix the fireworks visibility so that after clicking the \"YES\" button, the fireworks are clearly visible (not tiny faint dots) across common desktop and mobile screens by correcting particle opacity/lifespan logic and increasing perceived brightness/size as needed.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "fireworks pyaary ho na yar ye to nzr hi ni aa rhy choty choty sy dots lack screen pr"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On clicking \"YES\", fireworks appear as clearly visible bursts (not barely-visible dots) on both light and dark portions of the UI.",
+        "Particle alpha/opacity is not near-zero at the start of a burst (fireworks are bright immediately, then fade out smoothly).",
+        "Fireworks remain visible without requiring the user to change screen brightness or environment lighting."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Adjust the fireworks canvas rendering so it does not look like a solid black screen overlay; ensure the overlay remains visually transparent while still allowing trails/glow effects (if used), and keep the YES message and image readable beneath the fireworks.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "choty choty sy dots lack screen pr"
+        ]
+      },
+      "acceptanceCriteria": [
+        "During fireworks, the canvas overlay does not present as a full black screen; underlying content remains clearly visible.",
+        "Fireworks do not reduce the readability of the YES celebration text or obscure the couple image."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Maintain smooth performance by keeping the existing mobile performance scaling behavior, and ensure the animation cleans up correctly when fireworks stop (no continuing intervals/animations after the 10-second celebration window).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3",
+          "msg-4"
+        ],
+        "quotes": [
+          "want to add any other special effects to the YES celebration?",
+          "fireworks pyaary ho na yar ye to nzr hi ni aa rhy choty choty sy dots lack screen pr"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On mobile devices, the fireworks effect remains smooth (no obvious stutter) and does not cause the page to become unresponsive.",
+        "After the celebration ends, CPU usage returns to normal and the fireworks overlay stops rendering (no lingering timers/animations)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under frontend/src/components/ui (shadcn/ui sources).",
+    "Keep changes limited to the existing React frontend; no backend changes are required for this request."
+  ],
+  "nonGoals": [
+    "Adding new celebration types (confetti, sound effects, etc.) beyond improving the existing fireworks visibility.",
+    "Changing the 10-second fireworks duration unless needed to fix the visibility/overlay issue."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

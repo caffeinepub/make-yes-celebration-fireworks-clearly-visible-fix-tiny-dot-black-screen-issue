@@ -1,0 +1,59 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-fix-the-fireworks-visibility-so-that-after-clicking-the-yes-button-the-fireworks-are-clearly-visible-not-tiny-faint-dots-across-common-desktop-and-mobile-screens-by-correcting-particle-opacity-lifespan-logic-and-increasing-perceived-brightness-size-as-needed",
+      "featureTitle": "Fix the fireworks visibility so that after clicking the \"YES\" button, the fireworks are clearly visible (not tiny faint dots) across common desktop and mobile screens by correcting particle opacity/lifespan logic and increasing perceived brightness/size as needed.",
+      "files": [
+        "frontend/src/components/FireworksOverlay.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-adjust-the-fireworks-canvas-rendering-so-it-does-not-look-like-a-solid-black-screen-overlay-ensure-the-overlay-remains-visually-transparent-while-still-allowing-trails-glow-effects-if-used-and-keep-the-yes-message-and-image-readable-beneath-the-fireworks",
+      "featureTitle": "Adjust the fireworks canvas rendering so it does not look like a solid black screen overlay; ensure the overlay remains visually transparent while still allowing trails/glow effects (if used), and keep the YES message and image readable beneath the fireworks.",
+      "files": [
+        "frontend/src/components/FireworksOverlay.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-maintain-smooth-performance-by-keeping-the-existing-mobile-performance-scaling-behavior-and-ensure-the-animation-cleans-up-correctly-when-fireworks-stop-no-continuing-intervals-animations-after-the-10-second-celebration-window",
+      "featureTitle": "Maintain smooth performance by keeping the existing mobile performance scaling behavior, and ensure the animation cleans up correctly when fireworks stop (no continuing intervals/animations after the 10-second celebration window).",
+      "files": [
+        "frontend/src/components/FireworksOverlay.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

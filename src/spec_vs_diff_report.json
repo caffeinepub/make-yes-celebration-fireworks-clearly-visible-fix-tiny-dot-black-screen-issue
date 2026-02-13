@@ -1,0 +1,39 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-04T15:57:31.329Z",
+  "summary": "Diff modifies the FireworksOverlay implementation to increase particle count/size and introduces mobile performance scaling and timer bookkeeping, but the provided truncated diff does not contain enough evidence to confirm the full set of requested visibility/overlay/readability and cleanup behaviors end-to-end.",
+  "missing_requirements": [
+    {
+      "id": "REQ-2",
+      "requirement": "Adjust the fireworks canvas rendering so it does not look like a solid black screen overlay; ensure the overlay remains visually transparent while still allowing trails/glow effects, and keep the YES message and image readable beneath the fireworks.",
+      "reason": "The diff snippet shows a semi-transparent black fill for trail clearing (rgba(0,0,0,0.05)), but does not include evidence of how the canvas is composited/styled (e.g., blend mode, globalAlpha, CSS opacity, pointer-events, z-index) to guarantee the overlay won’t read as a black screen or obscure underlying text/image.",
+      "evidence": [
+        "frontend/src/components/FireworksOverlay.tsx (truncated)"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "requirement": "Maintain smooth performance by keeping the existing mobile performance scaling behavior, and ensure the animation cleans up correctly when fireworks stop (no continuing intervals/animations after the 10-second celebration window).",
+      "reason": "Mobile scaling logic is visible, and timers are tracked in intervalIdsRef, but the truncated diff does not show the effect cleanup (clearing intervals/timeouts, cancelAnimationFrame) or any linkage to the 10-second celebration stop condition.",
+      "evidence": [
+        "frontend/src/components/FireworksOverlay.tsx (truncated)"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Adds an `intensity` prop with 'normal'/'high' configurations (different burst rates, particle counts, maxParticles, multiBurstChance).",
+      "reason": "The BuildRequest focuses on making existing fireworks visible and fixing overlay/cleanup; it does not request a new intensity mode API or a high-intensity variant.",
+      "evidence": [
+        "frontend/src/components/FireworksOverlay.tsx (truncated)"
+      ]
+    }
+  ],
+  "confidence": 0.62,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/FireworksOverlay.tsx",
+    "project_state.json"
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 11,
+  "summary": "Initial Internet Computer (Motoko + React) app scaffold with build/deploy templates, Internet Identity auth hooks, and a themed interactive frontend (hearts background, moving 'No' button, fireworks overlay) plus generated assets.",
+  "existing_features": [
+    {
+      "id": "IF-1",
+      "title": "IC project scaffold (Motoko backend + React frontend)",
+      "synonyms": [
+        "ICP scaffold",
+        "canister app template"
+      ],
+      "description": "Baseline project structure with Motoko canister, React/Vite frontend, config, build scripts, and deployment templates.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-2",
+      "title": "Build/deploy template for ICP (Dockerfile, scripts, canister YAMLs)",
+      "synonyms": [
+        "build-template",
+        "deploy scripts"
+      ],
+      "description": "Reusable build-template including Dockerfile, deploy.sh, icp.yaml, workspace/package configs, and canister configuration files.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-3",
+      "title": "Frontend UI component library integration (shadcn/ui)",
+      "synonyms": [
+        "shadcn components",
+        "UI kit"
+      ],
+      "description": "shadcn/ui components and supporting frontend tooling/config (eslint rules, postcss, tailwind, tsconfig, vite).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-4",
+      "title": "Internet Identity authentication hooks and actor wiring",
+      "synonyms": [
+        "II auth",
+        "useInternetIdentity",
+        "useActor"
+      ],
+      "description": "Frontend hooks/utilities to authenticate with Internet Identity and construct a backend actor client for canister calls.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-5",
+      "title": "Themed interactive frontend (hearts background, moving No button, fireworks overlay)",
+      "synonyms": [
+        "valentine UI",
+        "playful interactions"
+      ],
+      "description": "Custom interactive UI components including FloatingHeartsBackground, MovingNoButton, and FireworksOverlay integrated into the React app.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-6",
+      "title": "Generated frontend asset pipeline and bundled generated image(s)",
+      "synonyms": [
+        "image generation assets",
+        "generated images"
+      ],
+      "description": "Scripts for pruning/resizing images and inclusion of generated asset(s) under public/assets/generated.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-7",
+      "title": "Expanded shadcn/ui component catalog included in template",
+      "synonyms": [
+        "shadcn full component set",
+        "prebundled UI components"
+      ],
+      "description": "Build-template frontend now includes a broad set of shadcn/ui components (accordion, dialogs, forms, navigation, charts, etc.) along with related ESLint rules and utilities, providing a more complete out-of-the-box UI toolkit.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-8",
+      "title": "GitHub export / ICP CLI-oriented project packaging support",
+      "synonyms": [
+        "github-export-icp-cli",
+        "repo export support"
+      ],
+      "description": "Project/build-template updated to support workflows oriented around exporting/packaging the project for GitHub usage with ICP CLI conventions (configs/scripts/templates updated accordingly).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-fireworks-visibility-so-that-after-clicking-the-yes-button-the-fireworks-are-clearly-visible-not-tiny-faint-dots-across-common-desktop-and-mobile-screens-by-correcting-particle-opacity-lifespan-logic-and-increasing-perceived-brightness-size-as-needed",
+      "title": "Fix the fireworks visibility so that after clicking the \"YES\" button, the fireworks are clearly visible (not tiny faint dots) across common desktop and mobile screens by correcting particle opacity/lifespan logic and increasing perceived brightness/size as needed.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-adjust-the-fireworks-canvas-rendering-so-it-does-not-look-like-a-solid-black-screen-overlay-ensure-the-overlay-remains-visually-transparent-while-still-allowing-trails-glow-effects-if-used-and-keep-the-yes-message-and-image-readable-beneath-the-fireworks",
+      "title": "Adjust the fireworks canvas rendering so it does not look like a solid black screen overlay; ensure the overlay remains visually transparent while still allowing trails/glow effects (if used), and keep the YES message and image readable beneath the fireworks.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-maintain-smooth-performance-by-keeping-the-existing-mobile-performance-scaling-behavior-and-ensure-the-animation-cleans-up-correctly-when-fireworks-stop-no-continuing-intervals-animations-after-the-10-second-celebration-window",
+      "title": "Maintain smooth performance by keeping the existing mobile performance scaling behavior, and ensure the animation cleans up correctly when fireworks stop (no continuing intervals/animations after the 10-second celebration window).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Improve YES-click fireworks celebration so fireworks are clearly visible (not tiny dots on black screen); increase size/brightness/density and overall visual impact.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "architectural_notes": [
+    "Frontend uses React + Vite + Tailwind with shadcn/ui component set.",
+    "Auth is via Internet Identity; frontend provides hooks to create an authenticated actor for the Motoko canister.",
+    "Build/deploy automation provided via build-template (Dockerfile, deploy.sh, icp.yaml, canister.yaml).",
+    "Includes image tooling scripts (resize/prune) and generated assets in public/.",
+    "Build-template frontend ships with an expanded pre-generated shadcn/ui component set and associated lint rules/utilities for quicker UI assembly.",
+    "Project/build-template updated to align with ICP CLI/GitHub export-oriented packaging conventions (configs/scripts adjusted)."
+  ],
+  "known_issues": [
+    "Fireworks overlay after tapping YES can appear as tiny dots on a black screen (too subtle/low visibility)."
+  ],
+  "isFixRequest": true,
+  "generatedImages": [
+    {
+      "filename": "frontend/public/assets/generated/couple-sunset-hug.dim_1600x900.png",
+      "description": "Generated background/hero image asset (couple hugging at sunset).",
+      "targetWidth": 1600,
+      "targetHeight": 900
+    }
+  ],
+  "projectName": "Make YES celebration fireworks clearly visible (fix tiny-dot/black-screen issue)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

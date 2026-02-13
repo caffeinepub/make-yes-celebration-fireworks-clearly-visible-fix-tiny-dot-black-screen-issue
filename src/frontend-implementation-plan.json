@@ -1,0 +1,63 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Improve YES fireworks visibility and overlay transparency",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Make YES fireworks bursts clearly visible by fixing particle opacity/lifespan math and increasing perceived brightness/size while preserving existing performance scaling.",
+      "acceptanceCriteria": [
+        "On clicking \"YES\", fireworks appear as clearly visible bursts (not barely-visible dots) on both light and dark portions of the UI.",
+        "Particle alpha/opacity is not near-zero at the start of a burst (fireworks are bright immediately, then fade out smoothly).",
+        "Fireworks remain visible without requiring the user to change screen brightness or environment lighting."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/FireworksOverlay.tsx",
+          "operation": "modify",
+          "description": "Fix particle lifespan/alpha logic so particles start at full opacity and fade smoothly (e.g., track remainingLife/maxLife or age-based alpha), and tune particle size/brightness (radius range, glow/shadow blur, additive blending) so bursts read clearly on common desktop/mobile screens while keeping existing performanceScale behavior."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Prevent the fireworks canvas from appearing as a solid black overlay while keeping trails/glow and preserving readability of celebration text and image beneath.",
+      "acceptanceCriteria": [
+        "During fireworks, the canvas overlay does not present as a full black screen; underlying content remains clearly visible.",
+        "Fireworks do not reduce the readability of the YES celebration text or obscure the couple image."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/FireworksOverlay.tsx",
+          "operation": "modify",
+          "description": "Adjust the canvas clearing/trail technique to remain visually transparent (e.g., use transparent clears or significantly lighter fade passes, and set appropriate composite operations) so the overlay does not darken the entire UI while still allowing trails/glow effects."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Verify and, if needed, adjust the FireworksOverlay layering (z-index/stacking context) so fireworks remain visible without reducing readability of the YES text and the image beneath."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Keep fireworks smooth on mobile and ensure all timers/animations fully clean up after the 10-second celebration window.",
+      "acceptanceCriteria": [
+        "On mobile devices, the fireworks effect remains smooth (no obvious stutter) and does not cause the page to become unresponsive.",
+        "After the celebration ends, CPU usage returns to normal and the fireworks overlay stops rendering (no lingering timers/animations)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/FireworksOverlay.tsx",
+          "operation": "modify",
+          "description": "Ensure all timeouts/intervals are tracked and cleared (including any setTimeout calls created for multi-bursts), cancel any active requestAnimationFrame loop on unmount, and keep the existing mobile performance scaling behavior intact."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Confirm the YES celebration timer reliably unmounts FireworksOverlay after ~10 seconds and that any pending timeout is cleared on unmount to prevent lingering work."
+        }
+      ]
+    }
+  ]
+}
